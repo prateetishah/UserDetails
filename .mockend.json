@@ -1,0 +1,42 @@
+{
+  "User": {
+    "name": {
+      "string": {}
+    },
+    "email": {
+      "regexp": "#[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "posts": {
+      "hasMany": "Post"
+    },
+    "album": {
+      "Album": "Album"
+    }
+  },
+  "Post": {
+    "title": { "string": {} },
+    "comments": {
+      "belongsTo": "User",
+      "hasMany": "Comment"
+    }
+  },
+  "Comment": {
+    "body": { "string": {} },
+    "post": {
+      "belongsTo": "Post"
+    }
+  },
+  "Album": {
+    "title": { "string": {} },
+    "photos": {
+      "belongsTo": "User",
+      "hasMany": "Photo"
+    }
+  },
+  "Photo": {
+    "body": { "string": {} },
+    "album": {
+      "belongsTo": "Album"
+    }
+  }
+}
